@@ -1,13 +1,11 @@
 //Questions array below
 const STORE = [
-    {question: 'In the Hall of Prophecy there are rows and rows of glowing orbs. Which row contains the prophecy about Harry and Voldemort?', img:'question1.jpeg',},
-    {question: 'What is the address of Sirius Black’s family home?', img:'question2.png'},
-    {question: 'How many possible Quidditch fouls are there?', img:'question3.jpeg'},
-    {question: 'What is Rita Skeeter’s animagus form?', img:'question4.jpg'},
-    {question: 'What condition gives Tonks the ability to transform her features?', img:'question5.jpg'},
+    {question: 'Question 1 of 5: In the Hall of Prophecy there are rows and rows of glowing orbs. Which row contains the prophecy about Harry and Voldemort?', img:'https://github.com/maximus202/harry-potter-quiz/blob/master/images/question1.jpg?raw=true',},
+    {question: 'Question 2 of 5: What is the address of Sirius Black’s family home?', img:'https://github.com/maximus202/harry-potter-quiz/blob/master/images/question2.jpg?raw=true'},
+    {question: 'Question 3 of 5: How many possible Quidditch fouls are there?', img:'https://github.com/maximus202/harry-potter-quiz/blob/master/images/question3.jpg?raw=true'},
+    {question: 'Question 4 of 5: What is Rita Skeeter’s animagus form?', img:'https://github.com/maximus202/harry-potter-quiz/blob/master/images/question4.jpg?raw=true'},
+    {question: 'Question 5 of 5: What condition gives Tonks the ability to transform her features?', img:'https://github.com/maximus202/harry-potter-quiz/blob/master/images/question5.jpg?raw=true'},
 ]
-
-console.log(STORE[1].question);
 
 function startQuiz() {
     //User story: click a button to start the quiz
@@ -25,7 +23,6 @@ function startQuiz() {
 function getQuestion() {
     //User stories: Present questions, select options from
     //multiple choices, submit answer.
-    console.log('getQuestion function ran');
 }
 
 function getAccumulatedScore() {
