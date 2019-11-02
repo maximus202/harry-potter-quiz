@@ -3,7 +3,7 @@ function startQuiz() {
     //needs to display a page within the .quiz-box that
     //welcomes the user and displays a button to start
     console.log('startQuiz function ran');
-    $('.js-quiz-box').html('<img src="startpage.jpg" alt="Image of harry potter glasses, wand, and scar.">');
+    $('.js-quiz-box').html('<img src="https://github.com/maximus202/harry-potter-quiz/blob/master/images/startpage.jpg?raw=true" alt="Image of harry potter glasses, wand, and scar.">');
     //display welcome image
     //display button
 }
