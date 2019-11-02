@@ -1,0 +1,11 @@
+User should be able to:
+-Access the page to start the quiz
+-Click a button to start the quiz
+-Be presented with the question
+-Select an option from the multiple choices
+-Submit their answer
+-See their accumulated score as they progress
+-See whether they got the right or wrong answer
+-Move to the next question after viewing the answer
+-Get to the end of the quiz and see their overall score.
+-Retake the quiz
