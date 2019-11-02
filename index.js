@@ -1,3 +1,14 @@
+//Questions array below
+const STORE = [
+    {question: 'In the Hall of Prophecy there are rows and rows of glowing orbs. Which row contains the prophecy about Harry and Voldemort?', img:'question1.jpeg',},
+    {question: 'What is the address of Sirius Black’s family home?', img:'question2.png'},
+    {question: 'How many possible Quidditch fouls are there?', img:'question3.jpeg'},
+    {question: 'What is Rita Skeeter’s animagus form?', img:'question4.jpg'},
+    {question: 'What condition gives Tonks the ability to transform her features?', img:'question5.jpg'},
+]
+
+console.log(STORE[1].question);
+
 function startQuiz() {
     //User story: click a button to start the quiz
     //needs to display a page within the .quiz-box that
