@@ -1,7 +1,9 @@
 function startQuiz() {
     //User story: click a button to start the quiz
-    //needs to trigger getQuestion when a button is clicked.
+    //needs to display a page within the .quiz-box that
+    //welcomes the user and displays a button to start
     console.log('startQuiz function ran');
+    $(/*triggers when page loads*/)
 }
 
 function getQuestion() {
@@ -34,3 +36,11 @@ function retakeQuiz() {
     //User story: retake the quiz
     console.log('retakeQuiz function ran');
 }
+
+function handleHPQuiz() {
+    //when page loads, this callback function will render the quiz
+    startQuiz();
+}
+
+//when page loads, call `handleHPQuiz`
+$(handleHPQuiz);
