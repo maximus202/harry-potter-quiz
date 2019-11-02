@@ -1,5 +1,6 @@
 function startQuiz() {
     //User story: click a button to start the quiz
+    //needs to trigger getQuestion when a button is clicked.
     console.log('startQuiz function ran');
 }
 
