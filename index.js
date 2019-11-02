@@ -4,7 +4,7 @@ function startQuiz() {
     //welcomes the user and displays a button to start
     console.log('startQuiz function ran');
     //display welcome image
-    $('.js-quiz-box').html('<img src="https://github.com/maximus202/harry-potter-quiz/blob/master/images/startpage.jpg?raw=true" alt="Image of harry potter glasses, wand, and scar."></br><button>Start Quiz</button>');
+    $('.js-quiz-box').html('<img src="https://github.com/maximus202/harry-potter-quiz/blob/master/images/startpage.jpg?raw=true" alt="Image of harry potter glasses, wand, and scar."></br><button class=".js-start-quiz-button">Start Quiz</button>');
     //display button
 }
 
