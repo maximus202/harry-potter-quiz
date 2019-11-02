@@ -3,7 +3,9 @@ function startQuiz() {
     //needs to display a page within the .quiz-box that
     //welcomes the user and displays a button to start
     console.log('startQuiz function ran');
-    $(/*triggers when page loads*/)
+    $('.js-quiz-box').html('<img src="startpage.jpg" alt="Image of harry potter glasses, wand, and scar.">');
+    //display welcome image
+    //display button
 }
 
 function getQuestion() {
@@ -39,6 +41,7 @@ function retakeQuiz() {
 
 function handleHPQuiz() {
     //when page loads, this callback function will render the quiz
+    console.log('handleHPQuiz function ran')
     startQuiz();
 }
 
