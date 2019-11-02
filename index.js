@@ -15,6 +15,10 @@ function getQuestion() {
     //User stories: Present questions, select options from
     //multiple choices, submit answer.
     console.log('getQuestion function ran');
+    //code below remove the content from the start page
+    $('.js-quiz-box').empty();
+    //code below starts the first question of the quiz
+    
 }
 
 function getAccumulatedScore() {
