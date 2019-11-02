@@ -5,7 +5,7 @@ function startQuiz() {
     console.log('startQuiz function ran');
     //display welcome image and start quiz button
     $('.js-quiz-box').html('<img src="https://github.com/maximus202/harry-potter-quiz/blob/master/images/startpage.jpg?raw=true" alt="Image of harry potter glasses, wand, and scar."></br><button class="js-start-quiz-button">Start Quiz</button>');
-    //code below runsGetQuestion function when start quiz button is clicked.
+    //code below runs getQuestion function when start quiz button is clicked.
     $('.js-quiz-box').on('click', '.js-start-quiz-button', function() {
         getQuestion();
     });
@@ -15,10 +15,6 @@ function getQuestion() {
     //User stories: Present questions, select options from
     //multiple choices, submit answer.
     console.log('getQuestion function ran');
-    //code below remove the content from the start page
-    $('.js-quiz-box').empty();
-    //code below starts the first question of the quiz
-    
 }
 
 function getAccumulatedScore() {
