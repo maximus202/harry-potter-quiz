@@ -40,14 +40,20 @@ function displayQuestion() {
     $('.js-quiz-box').html('<form role="form" accept-charset="UTF-8" class="quiz-form"><fieldset><legend>Quiz</legend><img src="' + currentImg + '" alt="' + currentImgAlt + '"></br><label for="' + currentFor + '">' + currentQuestion + '</label></br><input type="radio" name="' + currentChoiceOne + '" value="' + currentChoiceOne + '">' + currentChoiceOne + '</br><input type="radio" name="' + currentChoiceTwo + '" value="' + currentChoiceTwo + '">' + currentChoiceTwo + '</br><input type="radio" name="' + currentChoiceThree + '" value="' + currentChoiceThree + '">' + currentChoiceThree + '</br><input type="radio" name="' + currentChoiceFour + '" value="' + currentChoiceFour + '">' + currentChoiceFour + '<br><button type="button" class="js-submit-answer">Submit Answer</button></fieldset></form>');
 }
 
+function requireSelection() {
+    //this function is need to make sure that the user has selected
+    //an option before being able to run validateAnswer function
+    console.log('requireSelection function ran');
+}
+
+function validateAnswer() {
+    //User story: Display whether they got the right or wrong answer
+    console.log('validateAnswer function ran');
+}
+
 function getAccumulatedScore() {
     //User story: See accumulated score as user progresses
     console.log('getAccumulatedScore function ran');
-}
-
-function getAnswer() {
-    //User story: Display whether they got the right or wrong answer
-    console.log('getAnswer function ran');
 }
 
 function moveToNextQuestion() {
