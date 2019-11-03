@@ -33,7 +33,7 @@ function displayQuestion() {
     let currentChoiceTwo = STORE[0].choiceTwo;
     let currentChoiceThree = STORE[0].choiceThree;
     let currentChoiceFour = STORE[0].choiceFour;
-    $('.js-quiz-box').html('<form role="form" accept-charset="UTF-8" class="quiz-form"><fieldset><legend>Quiz</legend><img src="' + currentImg + '" alt="' + currentImgAlt + '"></br><label for="' + currentFor + '">' + currentQuestion + '</label></br><input type="radio" name="' + currentChoiceOne + '" value="' + currentChoiceOne + '">' + currentChoiceOne + '</br><input type="radio" name="' + currentChoiceTwo + '" value="' + currentChoiceTwo + '">' + currentChoiceTwo + '</br><input type="radio" name="' + currentChoiceThree + '" value="' + currentChoiceThree + '">' + currentChoiceThree + '</br><input type="radio" name="' + currentChoiceFour + '" value="' + currentChoiceFour + '">' + currentChoiceFour + '<br></fieldset></form>');
+    $('.js-quiz-box').html('<form role="form" accept-charset="UTF-8" class="quiz-form"><fieldset><legend>Quiz</legend><img src="' + currentImg + '" alt="' + currentImgAlt + '"></br><label for="' + currentFor + '">' + currentQuestion + '</label></br><input type="radio" name="' + currentChoiceOne + '" value="' + currentChoiceOne + '">' + currentChoiceOne + '</br><input type="radio" name="' + currentChoiceTwo + '" value="' + currentChoiceTwo + '">' + currentChoiceTwo + '</br><input type="radio" name="' + currentChoiceThree + '" value="' + currentChoiceThree + '">' + currentChoiceThree + '</br><input type="radio" name="' + currentChoiceFour + '" value="' + currentChoiceFour + '">' + currentChoiceFour + '<br><button type="button" class="js-submit-answer">Submit Answer</button></fieldset></form>');
 }
 
 function getAccumulatedScore() {
