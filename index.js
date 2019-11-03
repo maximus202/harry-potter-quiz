@@ -43,7 +43,9 @@ function displayQuestion() {
 function requireSelection() {
     //this function is need to make sure that the user has selected
     //an option before being able to run validateAnswer function
-    console.log('requireSelection function ran');
+    $('.js-quiz-box').on('click', '.js-submit-answer', function() {
+        console.log('requireSelection function ran');
+    });
 }
 
 function validateAnswer() {
