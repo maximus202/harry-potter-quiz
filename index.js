@@ -6,8 +6,6 @@ const STORE = [
     {for:'question4', question: 'Question 4 of 5: What is Rita Skeeter’s animagus form?', img:'https://github.com/maximus202/harry-potter-quiz/blob/master/images/question4.jpg?raw=true'},
     {for:'question5', question: 'Question 5 of 5: What condition gives Tonks the ability to transform her features?', img:'https://github.com/maximus202/harry-potter-quiz/blob/master/images/question5.jpg?raw=true'},
 ]
-console.log(STORE[2].question);
-console.log(STORE[2].img);
 
 function startQuiz() {
     //User story: click a button to start the quiz
@@ -26,6 +24,7 @@ function displayQuestion() {
     //User stories: Present questions, select options from
     //multiple choices, submit answer.
     console.log('displayQuestion function ran')
+    //The variables below are used in the form to display the question and multiple choice that they're on.
     let currentFor = STORE[0].for;
     let currentImg = STORE[0].img;
     let currentImgAlt = STORE[0].imgAlt
@@ -34,7 +33,7 @@ function displayQuestion() {
     let currentChoiceTwo = STORE[0].choiceTwo;
     let currentChoiceThree = STORE[0].choiceThree;
     let currentChoiceFour = STORE[0].choiceFour;
-    $('.js-quiz-box').html('<form role="form" accept-charset="UTF-8" class="quiz-form"><fieldset><legend>Quiz</legend><img src="' + currentImg + '" alt="' + currentImgAlt + '"></br><label for="' + currentFor + '">' + currentQuestion + '</label></br><input type="radio" name="' + currentChoiceOne + '" value="' + currentChoiceOne + '">' + currentChoiceOne + '<br></fieldset></form>');
+    $('.js-quiz-box').html('<form role="form" accept-charset="UTF-8" class="quiz-form"><fieldset><legend>Quiz</legend><img src="' + currentImg + '" alt="' + currentImgAlt + '"></br><label for="' + currentFor + '">' + currentQuestion + '</label></br><input type="radio" name="' + currentChoiceOne + '" value="' + currentChoiceOne + '">' + currentChoiceOne + '</br><input type="radio" name="' + currentChoiceTwo + '" value="' + currentChoiceTwo + '">' + currentChoiceTwo + '</br><input type="radio" name="' + currentChoiceThree + '" value="' + currentChoiceThree + '">' + currentChoiceThree + '</br><input type="radio" name="' + currentChoiceFour + '" value="' + currentChoiceFour + '">' + currentChoiceFour + '<br></fieldset></form>');
 }
 
 function getAccumulatedScore() {
