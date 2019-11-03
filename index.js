@@ -24,6 +24,10 @@ function displayQuestion() {
     //User stories: Present questions, select options from
     //multiple choices, submit answer.
     console.log('displayQuestion function ran')
+    //Code needed below that figures out which array item to use in the variables below.
+    //If Question 1 has been submitted and validated, increment by 1 to move on to the next question.
+    //{CODE NEEDED HERE}
+
     //The variables below are used in the form to display the question and multiple choice that they're on.
     let currentFor = STORE[0].for;
     let currentImg = STORE[0].img;
