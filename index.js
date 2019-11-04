@@ -15,10 +15,58 @@ $(document).ready(function () {
                     { text: 'Row 96' },
                 ]
             },
-            { text: 'Question 2 of 5: What is the address of Sirius Black’s family home?', img: 'https://github.com/maximus202/harry-potter-quiz/blob/master/images/question2.jpg?raw=true' },
-            { text: 'Question 3 of 5: How many possible Quidditch fouls are there?', img: 'https://github.com/maximus202/harry-potter-quiz/blob/master/images/question3.jpg?raw=true' },
-            { text: 'Question 4 of 5: What is Rita Skeeter’s animagus form?', img: 'https://github.com/maximus202/harry-potter-quiz/blob/master/images/question4.jpg?raw=true' },
-            { text: 'Question 5 of 5: What condition gives Tonks the ability to transform her features?', img: 'https://github.com/maximus202/harry-potter-quiz/blob/master/images/question5.jpg?raw=true' },
+            {
+                text: 'Question 2 of 5: What is the address of Sirius Black’s family home?',
+                img: {
+                    src: 'https://github.com/maximus202/harry-potter-quiz/blob/master/images/question2.jpg?raw=true',
+                    alt: 'Image of Harry Potter from Harry Potter and the Order of the Phoenix.',
+                },
+                answers: [
+                    { text: '10 Gowrie Place' },
+                    { text: '21 Grenadier Place' },
+                    { text: '190 Acklam Place' },
+                    { text: '12 Grimmauld Place', isCorrect: true },
+                ]
+            },
+            {
+                text: 'Question 3 of 5: How many possible Quidditch fouls are there?',
+                img: {
+                    src: 'https://github.com/maximus202/harry-potter-quiz/blob/master/images/question3.jpg?raw=true',
+                    alt: 'Image of movie still from Harry Potter and the Chamber of Secrets.'
+                },
+                answers: [
+                    { text: '600' },
+                    { text: '700', isCorrect: true },
+                    { text: '800' },
+                    { text: '900' },
+                ]
+            },
+            {
+                text: 'Question 4 of 5: What is Rita Skeeter’s animagus form?',
+                img: {
+                    src: 'https://github.com/maximus202/harry-potter-quiz/blob/master/images/question4.jpg?raw=true',
+                    alt: 'Image of the character of Rita Skeeter from Harry Potter and the Goblet of Fire.',
+                },
+                answers: [
+                    { text: 'A beetle', isCorrect: true },
+                    { text: 'A spider' },
+                    { text: 'A fox' },
+                    { text: 'An owl' },
+                ]
+            },
+            {
+                text: 'Question 5 of 5: What condition gives Tonks the ability to transform her features?',
+                img: {
+                    src: 'https://github.com/maximus202/harry-potter-quiz/blob/master/images/question5.jpg?raw=true',
+                    alt: 'Movie still of the character Tonks from Harry Potter and the Order of the Phoenix.',
+                },
+                answers: [
+                    { text: 'Blood malediction' },
+                    { text: 'Somnambulism' },
+                    { text: 'Cerebrumous Spattergroit' },
+                    { text: 'Metamorphmagism' },
+                ]
+            },
         ],
         answers: []
     }
@@ -49,7 +97,16 @@ $(document).ready(function () {
         <img src="${question.img.src}" alt="${question.img.alt}">
         <ol>${generateAnswers(question.answers)}</ol>
         </fieldset>
+        <input type="submit">
+        Submit Answer
+        </input>
         </form>`
+    }
+
+    function handleQuestionSubmit() {
+        $('form').on('submit', function (event) {
+            event.preventDefault()
+        })
     }
 
     function displayQuestion() {
