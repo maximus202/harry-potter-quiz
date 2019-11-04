@@ -1,3 +1,4 @@
+$(document).ready(function() {
 //Questions array below
 const STORE = [
     {for:'question1', question: 'Question 1 of 5: In the Hall of Prophecy there are rows and rows of glowing orbs. Which row contains the prophecy about Harry and Voldemort?', img:'https://github.com/maximus202/harry-potter-quiz/blob/master/images/question1.jpg?raw=true', imgAlt:'Image of Harry Potter from Harry Potter and the Order of the Phoenix.', choiceOne:'Row 79', choiceTwo:'Row 97', choiceThree:'Row 67', choiceFour:'Row 96'},
@@ -37,15 +38,7 @@ function displayQuestion() {
     let currentChoiceTwo = STORE[0].choiceTwo;
     let currentChoiceThree = STORE[0].choiceThree;
     let currentChoiceFour = STORE[0].choiceFour;
-    $('.js-quiz-box').html('<form role="form" accept-charset="UTF-8" class="quiz-form"><fieldset><legend>Quiz</legend><img src="' + currentImg + '" alt="' + currentImgAlt + '"></br><label for="' + currentFor + '">' + currentQuestion + '</label></br><input type="radio" name="' + currentChoiceOne + '" value="' + currentChoiceOne + '">' + currentChoiceOne + '</br><input type="radio" name="' + currentChoiceTwo + '" value="' + currentChoiceTwo + '">' + currentChoiceTwo + '</br><input type="radio" name="' + currentChoiceThree + '" value="' + currentChoiceThree + '">' + currentChoiceThree + '</br><input type="radio" name="' + currentChoiceFour + '" value="' + currentChoiceFour + '">' + currentChoiceFour + '<br><button type="button" class="js-submit-answer">Submit Answer</button></fieldset></form>');
-}
-
-function requireSelection() {
-    //this function is need to make sure that the user has selected
-    //an option before being able to run validateAnswer function
-    $('.js-quiz-box').on('click', '.js-submit-answer', function() {
-        console.log('requireSelection function ran');
-    });
+    $('.js-quiz-box').html('<form role="form" accept-charset="UTF-8" class="quiz-form"><fieldset><legend>Quiz</legend><img src="' + currentImg + '" alt="' + currentImgAlt + '"></br><label for="' + currentFor + '">' + currentQuestion + '</label></br><input type="radio" name="' + currentFor + '" value="' + currentChoiceOne + '" required>' + currentChoiceOne + '</br><input type="radio" name="' + currentFor + '" value="' + currentChoiceTwo + '">' + currentChoiceTwo + '</br><input type="radio" name="' + currentFor + '" value="' + currentChoiceThree + '">' + currentChoiceThree + '</br><input type="radio" name="' + currentFor + '" value="' + currentChoiceFour + '">' + currentChoiceFour + '<br><button type="button" class="js-submit-answer">Submit Answer</button></fieldset></form>');
 }
 
 function validateAnswer() {
@@ -81,3 +74,5 @@ function handleHPQuiz() {
 
 //when page loads, call `handleHPQuiz`
 $(handleHPQuiz);
+
+});
