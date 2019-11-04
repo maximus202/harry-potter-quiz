@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    //Questions array below
+    //QUIZ below is an object that contains objects of questions, images, and multiple choice answers for each question.
     const QUIZ = {
         questions: [
             {
@@ -64,7 +64,7 @@ $(document).ready(function () {
                     { text: 'Blood malediction' },
                     { text: 'Somnambulism' },
                     { text: 'Cerebrumous Spattergroit' },
-                    { text: 'Metamorphmagism' },
+                    { text: 'Metamorphmagism', isCorrect: true },
                 ]
             },
         ],
@@ -77,9 +77,13 @@ $(document).ready(function () {
         //welcomes the user and displays a button to start
         console.log('startQuiz function ran');
         //display welcome image and start quiz button
-        $('.js-quiz-box').html('<img src="https://github.com/maximus202/harry-potter-quiz/blob/master/images/startpage.jpg?raw=true" alt="Image of harry potter glasses, wand, and scar."></br><button class="js-start-quiz-button">Start Quiz</button>');
+        $('.js-quiz-box').html(`<img src="https://github.com/maximus202/harry-potter-quiz/blob/master/images/startpage.jpg?raw=true" alt="Image of harry potter glasses, wand, and scar.">
+        <button name="Start Quiz" type="button" value="Start Quiz">
+        Start Quiz
+        </button>`
+        );
         //code below runs displayQuestion function when start quiz button is clicked.
-        $('.js-quiz-box').on('click', '.js-start-quiz-button', function () {
+        $('.js-quiz-box').on('click', 'button', function (event) {
             displayQuestion();
         });
     }
@@ -97,7 +101,7 @@ $(document).ready(function () {
         <img src="${question.img.src}" alt="${question.img.alt}">
         <ol>${generateAnswers(question.answers)}</ol>
         </fieldset>
-        <input type="submit">
+        <input type="Submit">
         Submit Answer
         </input>
         </form>`
