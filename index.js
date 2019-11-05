@@ -108,8 +108,14 @@ $(document).ready(function () {
     }
 
     function handleQuestionSubmit() {
-        $('form').on('submit', function (event) {
-            event.preventDefault()
+        $('form').on('Submit', function (event) {
+            event.preventDefault();
+            const value = $("input[name='answer']:checked").val();
+            const currentQuestion = QUIZ.questions[QUIZ.answers.length];
+            const selectedAnswer = currentQuestion.answers[value];
+            //below pushes the value to the answers array
+            QUIZ.answers.push(selectedAnswer);
+            validateAnswer(selectedAnswer);
         })
     }
 
@@ -128,6 +134,11 @@ $(document).ready(function () {
     function validateAnswer() {
         //User story: Display whether they got the right or wrong answer
         console.log('validateAnswer function ran');
+        if (selectedAnswer.isCorrect) {
+            console.log('Correct');
+        } else {
+            console.log('incorrect');
+        }
     }
 
     function getAccumulatedScore() {
