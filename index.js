@@ -1,5 +1,6 @@
 $(document).ready(function () {
-    //QUIZ below is an object that contains objects of questions, images, and multiple choice answers for each question.
+    //QUIZ below is an object that contains objects of questions, images,
+    //and multiple choice answers for each question.
     const QUIZ = {
         questions: [
             {
@@ -68,6 +69,8 @@ $(document).ready(function () {
                 ]
             },
         ],
+        //The answers array below is to store the answers that the user
+        //selects. Starts empty.
         answers: []
     }
 
@@ -89,12 +92,24 @@ $(document).ready(function () {
     }
 
     function generateAnswers(answers) {
+        console.log('generateAnswers() ran');
+        //Calls the function below to each item in the answers array being passed
+        //from generateQuestion. 
         return answers.map((answer, index) => {
+            //returns a numbered list of the available answer choices for the given question in radio buttons.
             return `<li><input id="answer${index}" type="radio" name="answer" value="${index}"><label for="answer${index}">${answer.text}</label></li>`
+            //.join() below  
         }).join("\n")
     }
 
     function generateQuestion(question) {
+        console.log('generateQuestion function ran')
+        //Below, we're returning a form to render in displayQuestion() and using
+        //the value that was passed from currentQuestion (the number of answers
+        //that have been answered so far) to use in the code below to grab the 
+        //text of the next question to display, image source, image alt, and the
+        //list of answers to display from the QUIZ object. In generateAnswers()
+        //we send the array of answers for the given question to generateAnswers().
         return `<form role="form" accept-charset="UTF-8" class="quiz-form">
         <fieldset>
         <legend>${question.text}</legend>
@@ -123,11 +138,15 @@ $(document).ready(function () {
         //User stories: Present questions, select options from
         //multiple choices, submit answer.
         console.log('displayQuestion function ran')
-        //Code needed below that figures out which array item to use in the variables below.
-        //If Question 1 has been submitted and validated, increment by 1 to move on to the next question.
-        //{CODE NEEDED HERE}
+        //Constant is created called currentQuestion which grabs
+        //the length of the QUIZ.answers array and then uses that
+        //As the index for figuring out what question to display
+        //QUIZ.questions[2] would display the third question.
         const currentQuestion = QUIZ.questions[QUIZ.answers.length];
-        //The variables below are used in the form to display the question and multiple choice that they're on.
+        console.log(currentQuestion);
+        //Inside js-quiz-box, we're displaying the html being returned
+        //in the generateQuestion function with the value of currentQuestion
+        //being passed in the parameter (the next question to display).
         $('.js-quiz-box').html(generateQuestion(currentQuestion));
     }
 
