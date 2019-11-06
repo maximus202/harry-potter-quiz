@@ -74,22 +74,26 @@ $(document).ready(function () {
         answers: []
     }
 
-    function startQuiz() {
-        //User story: click a button to start the quiz
-        //needs to display a page within the .quiz-box that
+    function displayWelcomeScreen() {
+        //User story: Needs to display a page within the .quiz-box that
         //welcomes the user and displays a button to start
         console.log('startQuiz function ran');
         //display welcome image and start quiz button
-        $('.js-quiz-box').html(`<img src="https://github.com/maximus202/harry-potter-quiz/blob/master/images/startpage.jpg?raw=true" alt="Image of harry potter glasses, wand, and scar.">
-        <button name="Start Quiz" type="button" value="Start Quiz">
+        $('main').html(`<img src="https://github.com/maximus202/harry-potter-quiz/blob/master/images/startpage.jpg?raw=true" alt="Image of harry potter glasses, wand, and scar.">
+        <button name="Start Quiz" type="button" value="Start Quiz" class="start-quiz">
         Start Quiz
         </button>`
         );
+    }
+
+    function startQuiz() {
+        //User story: click a button to start the quiz.
         //code below runs displayQuestion function when start quiz button is clicked.
-        $('.js-quiz-box').on('click', 'button', function (event) {
+        $('main').on('click', 'button', function (event) {
             displayQuestion();
         });
     }
+
 
     function generateAnswers(answers) {
         console.log('generateAnswers() ran');
@@ -98,7 +102,7 @@ $(document).ready(function () {
         return answers.map((answer, index) => {
             //returns a numbered list of the available answer choices for the given question in radio buttons.
             return `<li><input id="answer${index}" type="radio" name="answer" value="${index}"><label for="answer${index}">${answer.text}</label></li>`
-            //.join() below  
+            //.join() below removes the commas in the array and makes each answer it's own line. 
         }).join("\n")
     }
 
@@ -124,6 +128,7 @@ $(document).ready(function () {
 
     function handleQuestionSubmit() {
         $('form').on('Submit', function (event) {
+            console.log('handleQuestionSubmit() ran');
             event.preventDefault();
             const value = $("input[name='answer']:checked").val();
             const currentQuestion = QUIZ.questions[QUIZ.answers.length];
@@ -147,7 +152,7 @@ $(document).ready(function () {
         //Inside js-quiz-box, we're displaying the html being returned
         //in the generateQuestion function with the value of currentQuestion
         //being passed in the parameter (the next question to display).
-        $('.js-quiz-box').html(generateQuestion(currentQuestion));
+        $('main').html(generateQuestion(currentQuestion));
     }
 
     function validateAnswer() {
@@ -180,13 +185,15 @@ $(document).ready(function () {
         console.log('retakeQuiz function ran');
     }
 
-    function handleHPQuiz() {
+
+    function setUpEventHandlers() {
         //when page loads, this callback function will render the quiz
-        console.log('handleHPQuiz function ran')
+        console.log('setUpEventHandlers function ran')
+        displayWelcomeScreen();
         startQuiz();
     }
 
-    //when page loads, call `handleHPQuiz`
-    $(handleHPQuiz);
+    //when page loads, call `setUpEventHandlers`
+    $(setUpEventHandlers);
 
 });
