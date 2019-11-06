@@ -80,7 +80,7 @@ $(document).ready(function () {
         console.log('startQuiz function ran');
         //display welcome image and start quiz button
         $('main').html(`<img src="https://github.com/maximus202/harry-potter-quiz/blob/master/images/startpage.jpg?raw=true" alt="Image of harry potter glasses, wand, and scar.">
-        <button name="Start Quiz" type="button" value="Start Quiz" class="start-quiz">
+        <button name="Start Quiz" type="button" value="Start Quiz">
         Start Quiz
         </button>`
         );
@@ -120,23 +120,24 @@ $(document).ready(function () {
         <img src="${question.img.src}" alt="${question.img.alt}">
         <ol>${generateAnswers(question.answers)}</ol>
         </fieldset>
-        <input type="Submit">
+        <input type="submit" value="Submit">
         Submit Answer
         </input>
         </form>`
     }
 
     function handleQuestionSubmit() {
-        $('form').on('Submit', function (event) {
+        $('main').on("submit", ".quiz-form", function (event) {
             console.log('handleQuestionSubmit() ran');
             event.preventDefault();
-            const value = $("input[name='answer']:checked").val();
-            const currentQuestion = QUIZ.questions[QUIZ.answers.length];
-            const selectedAnswer = currentQuestion.answers[value];
+            alert('hello');
+            //const value = $("input[name='answer']:checked").val();
+            //const currentQuestion = QUIZ.questions[QUIZ.answers.length];
+            //const selectedAnswer = currentQuestion.answers[value];
             //below pushes the value to the answers array
-            QUIZ.answers.push(selectedAnswer);
-            validateAnswer(selectedAnswer);
-        })
+            //QUIZ.answers.push(selectedAnswer);
+            //validateAnswer(selectedAnswer);
+        });
     }
 
     function displayQuestion() {
@@ -191,6 +192,7 @@ $(document).ready(function () {
         console.log('setUpEventHandlers function ran')
         displayWelcomeScreen();
         startQuiz();
+        handleQuestionSubmit();
     }
 
     //when page loads, call `setUpEventHandlers`
