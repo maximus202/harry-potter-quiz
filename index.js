@@ -136,12 +136,6 @@ $(document).ready(function () {
         console.log(QUIZ.scores);
     }
 
-    function calculateScore() {
-        //User story: See accumulated score as user progresses
-        console.log('calculateScore function ran');
-        totalScore = QUIZ.scores.length;
-    }
-
     function handleQuestionSubmit() {
         $('main').on("submit", ".quiz-form", function (event) {
             console.log('handleQuestionSubmit() ran');
@@ -186,8 +180,8 @@ $(document).ready(function () {
         <h2>
         Yes! That's correct.
         </h2>
-        <button name="Next Question" type="button" value="Next question" class="next-question">
-        Next question
+        <button name="Next" type="button" value="Next" class="next">
+        Next
         </button>`
     }
 
@@ -204,8 +198,8 @@ $(document).ready(function () {
         <h2>
         Sorry, that's wrong...
         </h2>
-        <button name="Next question" type="button" value="Next question" class="next-question">
-        Next question
+        <button name="Next" type="button" value="Next" class="next">
+        Next
         </button>`
     }
 
@@ -217,7 +211,7 @@ $(document).ready(function () {
 
     function moveToNextQuestion() {
         //User story: Move to the next question after viewing the answer
-        $('main').on('click', '.next-question', function (event) {
+        $('main').on('click', '.next', function (event) {
             console.log('moveToNextQuestion function ran');
             displayQuestion();
         });
@@ -236,7 +230,6 @@ $(document).ready(function () {
         startQuiz();
         handleQuestionSubmit();
         moveToNextQuestion();
-        calculateScore();
         retakeQuiz();
     }
 
