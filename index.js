@@ -162,29 +162,27 @@ $(document).ready(function () {
         $('main').html(generateQuestion(currentQuestion));
     }
 
-    function validateAnswer() {
-        //User story: Display whether they got the right or wrong answer
-        console.log('validateAnswer function ran');
-        //creating local variables
-        const value = $("input[name='answer']:checked").val();
-        const currentQuestion = QUIZ.questions[QUIZ.answers.length];
-        const selectedAnswer = currentQuestion.answers[value];
-        //determining what to do if the answer is correct or incorrect
-        if (selectedAnswer.isCorrect) {
-            showCorrectScreen(currentQuestion, selectedAnswer)
-        } else {
-            showIncorrectScreen(currentQuestion, selectedAnswer)
-        }
+    function renderCorrectScreenHTML(currentQuestion, selectedAnswer) {
+        console.log('renderCorrectScreenHTML() ran');
+        return `<img src="${currentQuestion.img.src}" alt="${currentQuestion.img.alt}">
+        <h2>
+        Yes! That's correct.
+        </h2>
+        <button>
+        Next question
+        </button>`
     }
 
-    function showCorrectScreen() {
+    function showCorrectScreen(currentQuestion, selectedAnswer) {
         //User story: shows a screen that tells the user their answer was correct.
-        console.log('showCorrectScreen() ran.')
+        console.log('showCorrectScreen() ran.');
+        $('main').html(renderCorrectScreenHTML(currentQuestion, selectedAnswer));
+
     }
 
     function showIncorrectScreen() {
         //user story: shows a screen that tells user their answer was wrong.
-        console.log('showIncorrectScreen() ran')
+        console.log('showIncorrectScreen() ran');
     }
 
     function getAccumulatedScore() {
