@@ -208,13 +208,6 @@ $(document).ready(function () {
     function getAccumulatedScore() {
         //User story: See accumulated score as user progresses
         console.log('getAccumulatedScore function ran');
-        let AccumulatedScore = 0;
-        $()
-    }
-
-    function getResults() {
-        //User story: Get to the end of the quiz and see their overall score.
-        console.log('getResults function ran');
     }
 
     function retakeQuiz() {
@@ -229,7 +222,9 @@ $(document).ready(function () {
         displayWelcomeScreen();
         startQuiz();
         handleQuestionSubmit();
-        moveToNextQuestion()
+        moveToNextQuestion();
+        getAccumulatedScore();
+        retakeQuiz();
     }
 
     //when page loads, call `setUpEventHandlers`
