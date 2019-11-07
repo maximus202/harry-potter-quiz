@@ -71,7 +71,7 @@ $(document).ready(function () {
         ],
         //The answers array below is to store the answers that the user
         //selects. Starts empty.
-        answers: []
+        answers: [],
     }
 
     function displayWelcomeScreen() {
@@ -168,7 +168,7 @@ $(document).ready(function () {
         <h2>
         Yes! That's correct.
         </h2>
-        <button>
+        <button name="Next Question" type="button" value="Next question" class="next-question">
         Next question
         </button>`
     }
@@ -180,19 +180,36 @@ $(document).ready(function () {
 
     }
 
-    function showIncorrectScreen() {
+    function renderIncorrectScreenHTML(currentQuestion, selectedAnswer) {
+        console.log('renderIncorrectScreenHTML() ran');
+        return `<img src="${currentQuestion.img.src}" alt="${currentQuestion.img.alt}">
+        <h2>
+        Sorry, that's wrong...
+        </h2>
+        <button name="Next question" type="button" value="Next question" class="next-question">
+        Next question
+        </button>`
+    }
+
+    function showIncorrectScreen(currentQuestion, selectedAnswer) {
         //user story: shows a screen that tells user their answer was wrong.
         console.log('showIncorrectScreen() ran');
+        $('main').html(renderIncorrectScreenHTML(currentQuestion, selectedAnswer));
+    }
+
+    function moveToNextQuestion() {
+        //User story: Move to the next question after viewing the answer
+        $('main').on('click', '.next-question', function (event) {
+            console.log('moveToNextQuestion function ran');
+            displayQuestion();
+        });
     }
 
     function getAccumulatedScore() {
         //User story: See accumulated score as user progresses
         console.log('getAccumulatedScore function ran');
-    }
-
-    function moveToNextQuestion() {
-        //User story: Move to the next question after viewing the answer
-        console.log('moveToNextQuestion function ran');
+        let AccumulatedScore = 0;
+        $()
     }
 
     function getResults() {
@@ -212,6 +229,7 @@ $(document).ready(function () {
         displayWelcomeScreen();
         startQuiz();
         handleQuestionSubmit();
+        moveToNextQuestion()
     }
 
     //when page loads, call `setUpEventHandlers`
