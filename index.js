@@ -131,14 +131,18 @@ $(document).ready(function () {
             console.log('handleQuestionSubmit() ran');
             event.preventDefault();
             //Below grabs index of selected answer
-            const value = $("input[name='answer']:checked").val()
+            const value = $("input[name='answer']:checked").val();
             console.log(value);
             const currentQuestion = QUIZ.questions[QUIZ.answers.length];
-            const selectedAnswer = currentQuestion.answers[value]
+            const selectedAnswer = currentQuestion.answers[value];
             console.log(selectedAnswer);
             QUIZ.answers.push(selectedAnswer);
             console.log(QUIZ.answers);
-            validateAnswer(selectedAnswer);
+            if (selectedAnswer.isCorrect) {
+                showCorrectScreen(currentQuestion, selectedAnswer)
+            } else {
+                showIncorrectScreen(currentQuestion, selectedAnswer)
+            }
         });
     }
 
@@ -161,6 +165,26 @@ $(document).ready(function () {
     function validateAnswer() {
         //User story: Display whether they got the right or wrong answer
         console.log('validateAnswer function ran');
+        //creating local variables
+        const value = $("input[name='answer']:checked").val();
+        const currentQuestion = QUIZ.questions[QUIZ.answers.length];
+        const selectedAnswer = currentQuestion.answers[value];
+        //determining what to do if the answer is correct or incorrect
+        if (selectedAnswer.isCorrect) {
+            showCorrectScreen(currentQuestion, selectedAnswer)
+        } else {
+            showIncorrectScreen(currentQuestion, selectedAnswer)
+        }
+    }
+
+    function showCorrectScreen() {
+        //User story: shows a screen that tells the user their answer was correct.
+        console.log('showCorrectScreen() ran.')
+    }
+
+    function showIncorrectScreen() {
+        //user story: shows a screen that tells user their answer was wrong.
+        console.log('showIncorrectScreen() ran')
     }
 
     function getAccumulatedScore() {
