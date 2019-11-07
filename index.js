@@ -72,6 +72,7 @@ $(document).ready(function () {
         //The answers array below is to store the answers that the user
         //selects. Starts empty.
         answers: [],
+        scores: []
     }
 
     function displayWelcomeScreen() {
@@ -106,7 +107,7 @@ $(document).ready(function () {
         }).join("\n")
     }
 
-    function generateQuestion(question) {
+    function generateQuestion(question, score) {
         console.log('generateQuestion function ran')
         //Below, we're returning a form to render in displayQuestion() and using
         //the value that was passed from currentQuestion (the number of answers
@@ -123,7 +124,22 @@ $(document).ready(function () {
         <input type="submit" value="Submit">
         Submit Answer
         </input>
+        <p>
+        Your score: ${score}
+        </p>
         </form>`
+    }
+
+    function addScore() {
+        console.log('addScore() ran');
+        const currentScore = QUIZ.scores.push('1');
+        console.log(QUIZ.scores);
+    }
+
+    function calculateScore() {
+        //User story: See accumulated score as user progresses
+        console.log('calculateScore function ran');
+        totalScore = QUIZ.scores.length;
     }
 
     function handleQuestionSubmit() {
@@ -139,9 +155,10 @@ $(document).ready(function () {
             QUIZ.answers.push(selectedAnswer);
             console.log(QUIZ.answers);
             if (selectedAnswer.isCorrect) {
-                showCorrectScreen(currentQuestion, selectedAnswer)
+                addScore();
+                showCorrectScreen(currentQuestion, selectedAnswer);
             } else {
-                showIncorrectScreen(currentQuestion, selectedAnswer)
+                showIncorrectScreen(currentQuestion, selectedAnswer);
             }
         });
     }
@@ -155,11 +172,12 @@ $(document).ready(function () {
         //As the index for figuring out what question to display
         //QUIZ.questions[2] would display the third question.
         const currentQuestion = QUIZ.questions[QUIZ.answers.length];
+        const currentScore = QUIZ.scores.length;
         console.log(currentQuestion);
         //Inside js-quiz-box, we're displaying the html being returned
         //in the generateQuestion function with the value of currentQuestion
         //being passed in the parameter (the next question to display).
-        $('main').html(generateQuestion(currentQuestion));
+        $('main').html(generateQuestion(currentQuestion, currentScore));
     }
 
     function renderCorrectScreenHTML(currentQuestion, selectedAnswer) {
@@ -205,11 +223,6 @@ $(document).ready(function () {
         });
     }
 
-    function getAccumulatedScore() {
-        //User story: See accumulated score as user progresses
-        console.log('getAccumulatedScore function ran');
-    }
-
     function retakeQuiz() {
         //User story: retake the quiz
         console.log('retakeQuiz function ran');
@@ -223,7 +236,7 @@ $(document).ready(function () {
         startQuiz();
         handleQuestionSubmit();
         moveToNextQuestion();
-        getAccumulatedScore();
+        calculateScore();
         retakeQuiz();
     }
 
