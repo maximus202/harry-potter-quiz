@@ -121,7 +121,6 @@ $(document).ready(function () {
         <ol>${generateAnswers(question.answers)}</ol>
         </fieldset>
         <input type="submit" value="Submit">
-        Submit Answer
         </input>
         <p>
         Your score: ${calculateScore()}
@@ -226,14 +225,14 @@ $(document).ready(function () {
         let message = '';
         switch (score) {
             case 0:
-                message = 'You don\'t know anything';
+                message = '..Muggle.';
                 break;
             case 1:
                 message = 'Eh...';
                 break;
             case 2:
             case 3:
-                message = 'That was alright...';
+                message = 'That\'s alright...';
                 break;
             case 4:
                 message = 'So close!';
