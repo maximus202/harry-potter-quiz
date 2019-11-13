@@ -101,7 +101,7 @@ $(document).ready(function () {
         //from generateQuestion. 
         return answers.map((answer, index) => {
             //returns a numbered list of the available answer choices for the given question in radio buttons.
-            return `<li><input id="answer${index}" type="radio" name="answer" value="${index}"><label for="answer${index}">${answer.text}</label></li>`
+            return `<li><input id="answer${index}" type="radio" name="answer" value="${index}" required><label for="answer${index}">${answer.text}</label></li>`
             //.join() below removes the commas in the array and makes each answer it's own line. 
         }).join("\n")
     }
