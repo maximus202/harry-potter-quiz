@@ -141,15 +141,17 @@ $(document).ready(function () {
             //Below grabs index of selected answer
             const value = $("input[name='answer']:checked").val();
             console.log(value);
-            const currentQuestion = QUIZ.questions[QUIZ.answers.length];
-            const selectedAnswer = currentQuestion.answers[value];
-            console.log(selectedAnswer);
-            QUIZ.answers.push(selectedAnswer);
-            console.log(QUIZ.answers);
-            if (selectedAnswer.isCorrect) {
-                showCorrectScreen(currentQuestion);
-            } else {
-                showIncorrectScreen(currentQuestion);
+            if (value == 0 || value) {
+                const currentQuestion = QUIZ.questions[QUIZ.answers.length];
+                const selectedAnswer = currentQuestion.answers[value];
+                console.log(selectedAnswer);
+                QUIZ.answers.push(selectedAnswer);
+                console.log(QUIZ.answers);
+                if (selectedAnswer.isCorrect) {
+                    showCorrectScreen(currentQuestion);
+                } else {
+                    showIncorrectScreen(currentQuestion);
+                }
             }
         });
     }
